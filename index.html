@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="appMain">
+  <head>
+  	<meta charset="utf-8">
+	<title>Admin Template</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+    	
+    	<div class="row">
+    		
+    		<div class="col-md-12">
+    			
+    			<!--  Store Header  -->
+				<header>
+				  <h2 class="text-center">Template Admin</h2>
+				  <h3 class="text-center">– an Angular template –</h3>
+				</header>
+    			
+    		</div>
+    		
+    	</div>
+    	
+    </div>
+   
+    <div class="container">
+    	
+    	<div class="row">
+			<!--.col-md-2-->
+			<div class="col-md-2" ng-controller="SideNavController as sideNav" ng-include="'templates/sideNav.html'">
+			</div>   
+			<!--/.col-md-2-->	    		    		    		    		    		    		    		    		    		    		    		    	
+    		<!--.col-md-6-->
+    		<div class="col-md-6" ng-controller="contentController as elemtCtrl" ng-include="'templates/content-template.html'">
+    		</div>
+    		<!--/.col-md-6-->
+
+    		<div class="col-md-4" ng-controller="EventController as Event" ng-include="'templates/right-template.html'">
+    		</div><!--/.col-md-4-->
+
+    	</div><!--/.row-->
+    	
+    </div>
+
+  </body>
+</html>

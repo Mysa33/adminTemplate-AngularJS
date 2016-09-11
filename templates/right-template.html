@@ -1,0 +1,85 @@
+<!--  Products Container  -->
+<div class="list-group">
+  <!--  Product Container  -->
+  <div class="list-group-item" ng-repeat="event in Event.events">
+	<h5>{{event.name}} <em class="pull-right">{{event.date}}</em></h5>
+
+	<!-- Image Gallery  -->
+	<div ng-controller="GalleryController as gallery"  ng-show="event.images.length">
+	  <div class="img-wrap">
+		<img ng-src="{{event.images[gallery.current]}}" class="margin-ten-bottom"/>
+	  </div>
+	</div>
+
+	<!-- Product Tabs  -->
+	<section ng-controller="TabController as tab">
+	  <ul class="nav nav-pills">
+		<li ng-class="{ active:tab.isSet(1) }">
+		  <a href="" ng-click="tab.setTab(1)">Description</a>
+		</li>
+		<li ng-class="{ active:tab.isSet(2) }">
+		  <a href="" ng-click="tab.setTab(2)">Specs</a>
+		</li>
+		<li ng-class="{ active:tab.isSet(3) }">
+		  <a href="" ng-click="tab.setTab(3)">Reviews</a>
+		</li>
+	  </ul>
+
+	  <!--  Description Tab's Content  -->
+	  <div ng-show="tab.isSet(1)">
+		<h5>Description</h5>
+		<blockquote>{{event.description}}</blockquote>
+	  </div>
+
+
+	  <!--  Spec Tab's Content  -->
+	  <div ng-show="tab.isSet(2)">
+		<h5>Specs</h5>
+		<blockquote>Persons: {{event.shine}}</blockquote>
+	  </div>
+
+	  <!--  Review Tab's Content  -->
+	  <div ng-show="tab.isSet(3)">
+		<!--  Product Reviews List -->
+		<ul>
+		  <h5>Reviews</h5>
+		  <li ng-repeat="review in event.reviews">
+			<blockquote>
+			  <strong>{{review.stars}} Stars</strong>
+			  {{review.body}}
+			  <cite class="clearfix">—{{review.author}}</cite>
+			</blockquote>
+		  </li>
+		</ul>
+
+		<!--  Review Form -->
+		<form name="reviewForm">
+
+		  <!--  Live Preview -->
+		  <blockquote ng-show="review">
+			<strong>{{review.stars}} Stars</strong>
+			{{review.body}}
+			<cite class="clearfix">—{{review.author}}</cite>
+		  </blockquote>
+
+		  <!--  Review Form -->
+		  <h4>Submit a Review</h4>
+		  <fieldset class="form-group">
+			<select ng-model="review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+			  <option value="">Rate the Event</option>
+			</select>
+		  </fieldset>
+		  <fieldset class="form-group">
+			<textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the event..." title="Review"></textarea>
+		  </fieldset>
+		  <fieldset class="form-group">
+			<input ng-model="review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+		  </fieldset>
+		  <fieldset class="form-group">
+			<input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+		  </fieldset>
+		</form>
+	  </div>
+	</section>
+  </div>
+</div>			

@@ -1,0 +1,15 @@
+.ten-right{margin-right: 10px;}
+.ten-left{margin-left: 10px;}
+.margin-ten-top{margin-top:10px;}
+.margin-ten-bottom{margin-bottom:10px;}
+.font-size-twenty{font-size: 20px;}
+.font-size-twelve{font-size: 12px;}
+.font-size-16{font-size: 16px;}
+
+/*********
+Content
+*********/
+.header-content{
+	border: 1px solid #ddd;
+	border-radius: 2px;
+}
